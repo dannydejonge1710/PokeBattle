@@ -1,5 +1,4 @@
 * {
-	text-align: center;
 	margin-top: 20px;
 	letter-spacing: 2px;
 	font-family: 'Pacifico', cursive;
@@ -7,4 +6,8 @@
 
 body {
 	background-color: lightgrey;
+}
+
+#wrapper{
+	text-align: center;
 }

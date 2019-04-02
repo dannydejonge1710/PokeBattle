@@ -1,11 +1,43 @@
 <?php
+
 require 'Pokemon.php';
-require 'EnergyType.php';
+require 'Attacks.php';
+require 'Resistance.php';
+require 'Weakness.php';
+
+$pickachu = new Pokemon('Pickachu', 'Lightning', 60);
+$pickachu->setWeakness(new Weakness('Fire', 1.5));
+$pickachu->setResistance(new Resistance('Fighting', 20));
+$pickachu->setAttacks(new Attacks('Electric Ring', 50));
+$pickachu->setAttacks(new Attacks('Pika Punch', 20));
+
+printAction($pickachu);
+
+$charmeleon = new Pokemon('Charmeleon', 'Fire', 60);
+$charmeleon->setWeakness(new Weakness('Water', 2));
+$charmeleon->setResistance(new Resistance('Lightning', 10));
+$charmeleon->setAttacks(new Attacks('Head Butt', 10));
+$charmeleon->setAttacks(new Attacks('Flare', 30));
+
+printAction($charmeleon);
+
+$newHitpoints = calculateAction($pickachu->getAttacks(0)->getDamage());
+
+$charmeleon->setHitPoints($newHitpoints);
 
 
-$pickachu = new Pokemon('hi');
+function calculateAction($damage)
+{
+	$newHitpoints = $charmeleon->getHitPoints() - $damage;
 
-$name = $pickachu->getName();
+	return $newHitpoints;
+}
+
+function printAction($data){
+	echo "<pre>";
+	print_r($data);
+	echo "</pre>";
+}
 
 ?>
 

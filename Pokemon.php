@@ -5,20 +5,15 @@ class Pokemon
 	private $name;
 	private $energyType;
 	private $hitPoints;
-	private $health;
 	private $attacks;
 	private $weakness;
 	private $resistance;
 
-	public function __construct($name = null, $energyType = null, $hitPoints = null, $health = null, $attacks = null, $weakness = null, $resistance = null) 
+	public function __construct($name, $energyType, $hitPoints) 
 	{
 	  	$this->name = $name;
 	   	$this->energyType = $energyType;
 	   	$this->hitPoints = $hitPoints;
-	   	$this->health = $health;
-	   	$this->attacks = $attacks;
-	   	$this->weakness = $weakness;
-	   	$this->resistance = $resistance;
 	}
 
 	public function getName(){
@@ -33,22 +28,32 @@ class Pokemon
 		return $this->hitPoints;
 	}
 
-	public function getHealth(){
-		return $this->health;
+	public function getAttacks($key){
+		return $this->attacks[$key];	
 	}
 
-	public function getAttacks(){
-		return $this->attacks;	
+	public function setAttacks($attacks){
+		$this->attacks[] = $attacks;
 	}
 
 	public function getWeakness(){
 		return $this->weakness;	
 	}
 
+	public function setWeakness($weakness){
+		$this->weakness = $weakness;
+	}
+
 	public function getResistance(){
 		return $this->resistance;
 	}
+
+	public function setResistance($resistance){
+		$this->resistance = $resistance;
+	}
 }
+
+
 
 // class Bulbasaur extends Pokemon
 // {
