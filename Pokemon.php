@@ -9,11 +9,14 @@ class Pokemon
 	private $weakness;
 	private $resistance;
 
-	public function __construct($name, $energyType, $hitPoints) 
+	public function __construct($name, $energyType, $hitPoints, $weakness, $resistance, $attackOne, $attackTwo) 
 	{
 	  	$this->name = $name;
 	   	$this->energyType = $energyType;
 	   	$this->hitPoints = $hitPoints;
+	   	$this->weakness = $weakness;
+	   	$this->resistance = $resistance;
+	   	$this->attacks = [$attackOne, $attackTwo];
 	}
 
 	public function getName(){

@@ -1,37 +1,29 @@
 <?php
 
 require 'Pokemon.php';
+require 'Pickachu.php';
+require 'Charmeleon.php';
 require 'Attacks.php';
 require 'Resistance.php';
 require 'Weakness.php';
 
-$pickachu = new Pokemon('Pickachu', 'Lightning', 60);
-$pickachu->setWeakness(new Weakness('Fire', 1.5));
-$pickachu->setResistance(new Resistance('Fighting', 20));
-$pickachu->setAttacks(new Attacks('Electric Ring', 50));
-$pickachu->setAttacks(new Attacks('Pika Punch', 20));
+$weaknessPickachu = new Weakness('Fire', 1.5);
+$resistancePickachu = new Resistance('Fighting', 20);
+$attackOnePickachu = new Attacks('Electric Ring', 50);
+$attackTwoPickachu = new Attacks('Pika Punch', 20);
+
+$pickachu = new Pickachu('Pickachu', 'Lightning', 60, $weaknessPickachu, $resistancePickachu, $attackOnePickachu, $attackTwoPickachu); 
 
 printAction($pickachu);
 
-$charmeleon = new Pokemon('Charmeleon', 'Fire', 60);
-$charmeleon->setWeakness(new Weakness('Water', 2));
-$charmeleon->setResistance(new Resistance('Lightning', 10));
-$charmeleon->setAttacks(new Attacks('Head Butt', 10));
-$charmeleon->setAttacks(new Attacks('Flare', 30));
+$weaknessCharmeleon = new Weakness('Water', 2);
+$resistanceCharmeleon = new Resistance('Lightning', 10);
+$attackOneCharmeleon = new Attacks('Head Butt', 10);
+$attackTwoCharmeleon = new Attacks('Flare', 30);
+
+$charmeleon = new Charmeleon('Charmeleon', 'Fire', 60, $weaknessCharmeleon, $resistanceCharmeleon, $attackOneCharmeleon, $attackTwoCharmeleon);
 
 printAction($charmeleon);
-
-$newHitpoints = calculateAction($pickachu->getAttacks(0)->getDamage());
-
-$charmeleon->setHitPoints($newHitpoints);
-
-
-function calculateAction($damage)
-{
-	$newHitpoints = $charmeleon->getHitPoints() - $damage;
-
-	return $newHitpoints;
-}
 
 function printAction($data){
 	echo "<pre>";
