@@ -7,12 +7,8 @@ require 'Attacks.php';
 require 'Resistance.php';
 require 'Weakness.php';
 
-$weaknessPickachu = new Weakness('Fire', 1.5);
-$resistancePickachu = new Resistance('Fighting', 20);
-$attackOnePickachu = new Attacks('Electric Ring', 50);
-$attackTwoPickachu = new Attacks('Pika Punch', 20);
 
-$pickachu = new Pickachu('Pickachu', 'Lightning', 60, $weaknessPickachu, $resistancePickachu, $attackOnePickachu, $attackTwoPickachu); 
+$pickachu = new Pickachu('Pickachu 1'); 
 
 printAction($pickachu);
 
@@ -24,6 +20,11 @@ $attackTwoCharmeleon = new Attacks('Flare', 30);
 $charmeleon = new Charmeleon('Charmeleon', 'Fire', 60, $weaknessCharmeleon, $resistanceCharmeleon, $attackOneCharmeleon, $attackTwoCharmeleon);
 
 printAction($charmeleon);
+
+$pickachu->Attack($charmeleon, 0);
+
+
+printAction('Pickachu valt aan met');
 
 function printAction($data){
 	echo "<pre>";

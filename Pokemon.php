@@ -31,9 +31,7 @@ class Pokemon
 		return $this->hitPoints;
 	}
 
-	public function getAttacks($key){
-		return $this->attacks[$key];	
-	}
+
 
 	public function setAttacks($attacks){
 		$this->attacks[] = $attacks;
@@ -54,6 +52,30 @@ class Pokemon
 	public function setResistance($resistance){
 		$this->resistance = $resistance;
 	}
+
+	// $target = the pokemon that will be attacked
+	// $attacknr = 0 or 1 
+	public function Attack($target, $attacknr)
+	{
+		$attack = $this->attacks[$attacknr];
+		printf("%s attacks %s with %s <br>", $this->name, $target->getName(), $attack->getName() );
+		$target->DoDamage($this->energyType, $attack->getDamage() );
+	}
+	
+	// aanval met fire voor 30 punten
+	public function DoDamage($energytype_attacker, $damagepoints) {
+		// handle weakness
+		
+		
+		// handle resistance
+		
+		// handle damage
+		printf("%s: help, I'm attacked with %s %s <br>", $this->name, $energytype_attacker, $damagepoints );
+		
+	}
+
+
+
 }
 
 
